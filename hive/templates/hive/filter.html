@@ -1,0 +1,21 @@
+{% extends 'hive/base.html' %}{% load static %} {% block content%}
+
+<div class="products">
+  {% for p in product %}
+  <div class="product">
+    <div class="desc">
+      <img src="{% static p.product_image.url %}" class="prodimg" />
+      <p>{{p.name}}</p>
+      <p class="price">N{{p.price}}</p>
+    </div>
+    <div class="prodinfo">
+      <a href="#"> <i class="bx bx-cart bx-sm"></i></a>
+      <a href="{% url 'product-detail' p.id %}">
+        <i class="bx bx-search bx-sm"></i
+      ></a>
+      <a href="#"> <i class="bx bx-heart bx-sm"></i></a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content%}

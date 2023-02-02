@@ -1,0 +1,19 @@
+{% extends 'hive/base.html' %}{% load static %} {% block content%} <br /><br />
+<div class="prod">
+  <div class="productd">
+    <div class="descd">
+      <img src="{% static product.product_image.url %}" class="proddimg" />
+    </div>
+    <div class="proddinfo">
+      <h2>{{product.name}}</h2>
+      <p class="descript">{{product.description}}</p>
+      <p class="price"><span>N</span>{{product.price}}.00</p>
+      <div class="prodbtn">
+        <a href="#"><button class="button">Add to Cart</button></a>
+        <a href="#"><button class="button">View Cart</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br />
+{% endblock content%}

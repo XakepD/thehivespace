@@ -1,0 +1,26 @@
+{% extends 'hive/base.html' %}{% load static %} {% block content %} <br /><br />
+<div class="accnt">
+  <div class="acnt">
+    <div class="accntimg">
+      <img src="{% static 'images/gallery/gallery1.jpg' %}" />
+    </div>
+    {% for customer in acc %}
+    <div class="accntdata">
+      <h2>{{request.user}}</h2>
+      <h3>{{customer.name}}</h3>
+      <p><span>Email: </span> {{request.user.email}}</p>
+      <p>
+        <span>Address: </span> {{customer.address}}, {{customer.city}},
+        {{customer.state}}.
+      </p>
+      <p><span>Phone No: </span> {{customer.mobile}}</p>
+      <a href="{% url 'profile' %}"
+        ><button class="button">Edit Profile</button></a
+      >
+    </div>
+    {%endfor%}
+  </div>
+</div>
+
+<br /><br />
+{% endblock content %}

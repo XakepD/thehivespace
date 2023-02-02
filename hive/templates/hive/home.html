@@ -1,0 +1,92 @@
+{% extends 'hive/base.html' %}{% load static %} {% block content%}
+<div class="disp">
+  <div class="disp1"><img src="{% static 'images/disp.jpg' %}" /></div>
+</div>
+<div class="categories">
+  <h1>CATEGORIES</h1>
+  <div class="category">
+    <div class="cat animate__animated animate__fadeInUp">
+      <div class="imgc">
+        <img src="{% static 'images/categori/cat2.png' %}" class="img" />
+      </div>
+      <div class="inf1">
+        <h2>Kids</h2>
+        <p>Get your Kids clothing here at discounted prices</p>
+        <button class="button">
+          <a href="{% url 'category' 'KD' %} ">Shop Now</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="cat animate__animated animate__fadeInUp">
+      <div class="imgc">
+        <img src="{% static 'images/categori/cat1.png' %}" class="img" />
+      </div>
+      <div class="inf1">
+        <h2>WOMEN</h2>
+        <p>Get your womens clothing here at discounted prices</p>
+        <button class="button">
+          <a href="{% url 'category' 'WM' %} ">Shop Now</a>
+        </button>
+      </div>
+    </div>
+    <div class="cat animate__animated animate__fadeInUp">
+      <div class="imgc">
+        <img src="{% static 'images/hero/hero_man.png' %}" class="img" />
+      </div>
+      <div class="inf1">
+        <h2>Jewelry</h2>
+        <p>Get your Jewelries here at discounted prices</p>
+        <button class="button">
+          <a href="{% url 'category' 'SH' %} ">Shop Now</a>
+        </button>
+      </div>
+    </div>
+    <div class="cat animate__animated animate__fadeInUp">
+      <div class="imgc">
+        <img src="{% static 'images/categori/cat3.png' %}" class="img" />
+      </div>
+      <div class="inf1">
+        <h2>MEN</h2>
+        <p>Get your Mens clothing here at discounted prices</p>
+        <button class="button">
+          <a href="{% url 'category' 'MN' %} ">Shop Now</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cc"><h1>PRODUCTS</h1></div>
+<div class="products">
+  {% for p in products %}
+  <div class="product">
+    <div class="desc">
+      <img src="{% static p.product_image.url %}" class="prodimg" />
+      <p>{{p.name}}</p>
+      <p class="price">N{{p.price}}</p>
+    </div>
+    <div class="prodinfo">
+      <a href="#"> <i class="bx bx-cart bx-sm"></i></a>
+      <a href="{% url 'product-detail' p.id %}">
+        <i class="bx bx-search bx-sm"></i
+      ></a>
+      <a href="#"> <i class="bx bx-heart bx-sm"></i></a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div id="news">
+  <div class="news">
+    <div class="news1">
+      <h1>Get news about our latest products</h1>
+    </div>
+    <div class="newinp">
+      <input placeholder="Your Email" type="email" />
+      <button>Send</button>
+    </div>
+  </div>
+</div>
+<br /><br />
+
+{% endblock content%}

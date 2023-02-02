@@ -1,0 +1,46 @@
+{% extends 'hive/base.html' %}{% load static %} {% block content%} {% load crispy_forms_tags %} 
+<div class="profile"><div class="profnav">
+  <div class="profimg">
+    <img src="{% static 'images/logo/testimonial.png' %}">
+    <h2 class="title">{{request.user}}</h2>
+  </div>
+</div><div class="proform">
+   <form action="" method="POST">
+							<div class="Fone">
+									{% csrf_token %}
+				
+				<h2 class="title">Update profile</h2>
+           		<div class="input-div one">
+           		   		<h5>Name</h5>
+           		   			{{form.name}}
+           		</div>
+           		<div class="input-div one">
+           		  
+           		   		<h5>Address</h5>
+           		   			{{form.address}}
+           		</div>
+           		
+           		
+           		<div class="input-div pass">
+           		    	<h5>City</h5>
+           		    		{{form.city}}
+            	</div>
+            	<div class="input-div pass">
+           		    	<h5>State</h5>
+           		    		{{form.state}}
+            	</div>
+              <div class="input-div pass">
+           		    	<h5>Phone No</h5>
+           		    		{{form.mobile}}
+            	</div>
+            	<br><br><div class="btnd">
+            	<input type="submit" class="btn" value="Update">
+              </div>
+            	  	</div>
+            </form>
+            
+        </div>
+    </div>
+  </div>
+    
+{%endblock content%}
